@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::apiResource('v1/productos', App\Http\Controllers\Api\V1\ProductoController::class);
