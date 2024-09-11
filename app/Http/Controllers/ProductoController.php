@@ -21,7 +21,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('productos.create');
     }
 
     /**
@@ -29,7 +29,8 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Producto::create($request->all());
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -45,7 +46,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        return view('productos.edit', compact('producto'));
     }
 
     /**
@@ -53,7 +54,8 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        $producto->update($request->all());
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -61,6 +63,7 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('productos.index');
     }
 }
